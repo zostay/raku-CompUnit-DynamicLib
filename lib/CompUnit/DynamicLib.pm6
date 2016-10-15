@@ -1,8 +1,8 @@
 use v6;
 
-unit module CompUnit::DynamicLoader;
+unit module CompUnit::DynamicLib;
 
-sub use-lib-do(@include, &block) is export {
+multi use-lib-do(@include, &block) is export {
     my @repos;
     {
         ENTER {
@@ -35,8 +35,16 @@ sub use-lib-do(@include, &block) is export {
     }
 }
 
-sub require-from(@include, Str $module-name) is export {
+multi use-lib-do($include, &block) is export {
+    use-lib-do(($include,), &block);
+}
+
+multi require-from(@include, Str $module-name) is export {
     use-lib-do(@include, {
         require ::($module-name);
     });
+}
+
+multi require-from($include, Str $module-name) is export {
+    require-from(($include,), $module-name);
 }
