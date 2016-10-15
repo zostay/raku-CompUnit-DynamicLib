@@ -1,6 +1,6 @@
 use v6;
 
-unit module CompUnit::DynamicLib;
+unit module CompUnit::DynamicLib:ver<0.1>:auth<Sterling Hanenkamp (hanenkamp@cpan.org)>;
 
 multi use-lib-do(@include, &block) is export {
     my @repos;
