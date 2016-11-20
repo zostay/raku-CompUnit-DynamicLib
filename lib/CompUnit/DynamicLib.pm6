@@ -39,13 +39,14 @@ multi use-lib-do($include, &block) is export {
     use-lib-do(($include,), &block);
 }
 
-multi require-from(@include, Str $module-name where /^ <:word + [':]>+ $/) is export {
+multi require-from(@include, Str $module-name where /^ [ \w | <[':_-]> ]+ $/) is export {
     use-lib-do(@include, {
         # Work-around RT #129109
         # require ::($module-name);
         # TODO Try removing this work-around once the ticket is resolved.
         use MONKEY-SEE-NO-EVAL;
         EVAL "use $module-name";
+        ::($module-name);
     });
 }
 
