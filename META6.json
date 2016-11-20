@@ -18,7 +18,7 @@
    "authors" : [
       "Sterling Hanenkamp <hanenkamp@cpan.org>"
    ],
-   "version" : "0.2",
+   "version" : "0.2.1",
    "license" : "Artistic",
    "description" : "Load modules from temporarily included locations"
 }
