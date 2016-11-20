@@ -1,6 +1,6 @@
 use v6;
 
-unit module CompUnit::DynamicLib:ver<0.1>:auth<Sterling Hanenkamp (hanenkamp@cpan.org)>;
+unit module CompUnit::DynamicLib:ver<0.2>:auth<Sterling Hanenkamp (hanenkamp@cpan.org)>;
 
 multi use-lib-do(@include, &block) is export {
     my @repos;
@@ -39,9 +39,13 @@ multi use-lib-do($include, &block) is export {
     use-lib-do(($include,), &block);
 }
 
-multi require-from(@include, Str $module-name) is export {
+multi require-from(@include, Str $module-name where /^ <:word + [':]>+ $/) is export {
     use-lib-do(@include, {
-        require ::($module-name);
+        # Work-around RT #129109
+        # require ::($module-name);
+        # TODO Try removing this work-around once the ticket is resolved.
+        use MONKEY-SEE-NO-EVAL;
+        EVAL "use $module-name";
     });
 }
 

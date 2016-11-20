@@ -56,6 +56,10 @@ In cases where you only need to load a single module, this can be used as a shor
 
     use-lib-do @include, { require ::($module-name) };
 
+=head1 CAVEATS
+
+This is not implemented correctly as of v0.2. The original implementation in v0.1 tripped on a Perl 6 bug reported in L<https://rt.perl.org/Ticket/Display.html?id=129109>. The chosen work-around is not ideal.
+
 =head1 AUTHOR & COPYRIGHT
 
 Copyright 2016 Sterling Hanenkamp.
