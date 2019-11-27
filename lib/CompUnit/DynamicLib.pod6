@@ -21,7 +21,7 @@
 
 B<Experimental:> I do not really know if what this module does is a good idea or the best way to do it, but I am trying it out. Please use with caution and let me know if you have any problems.
 
-When searching for compilation units (more commonly referred to as just "modules" or "packages" or "classes") in Perl 6, the VM hunts through all the L<CompUnit::Repository> objects chained in C<$*REPO> (this is a more flexible solution to the C<@INC> setting using in Perl 5).
+When searching for compilation units (more commonly referred to as just "modules" or "packages" or "classes") in Raku, the VM hunts through all the L<CompUnit::Repository> objects chained in C<$*REPO> (this is a more flexible solution to the C<@INC> setting using in Perl 5).
 
 Normally, to add a new repository to the list, you would just run:
 
@@ -58,12 +58,12 @@ In cases where you only need to load a single module, this can be used as a shor
 
 =head1 CAVEATS
 
-This is not implemented correctly as of v0.2. The original implementation in v0.1 tripped on a Perl 6 bug reported in L<https://rt.perl.org/Ticket/Display.html?id=129109>. The chosen work-around is not ideal.
+This is not implemented correctly as of v0.2. The original implementation in v0.1 tripped on a Raku bug reported in L<https://rt.perl.org/Ticket/Display.html?id=129109>. The chosen work-around is not ideal.
 
 =head1 AUTHOR & COPYRIGHT
 
 Copyright 2016 Sterling Hanenkamp.
 
-This software is made available under the same terms as Perl 6 itself.
+This software is made available under the same terms as Raku itself.
 
 =end pod
