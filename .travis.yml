@@ -1,4 +1,10 @@
 language: perl6
+perl6:
+  - '2020.01'
+  - '2019.11'
+  - '2019.07.1'
+  - '2019.03'
+  - latest
 install:
   - rakudobrew build-panda
   - panda installdeps .
